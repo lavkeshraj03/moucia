@@ -37,8 +37,35 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* RIGHT — Contact Options */}
-        <div className="flex flex-col gap-14">
+        {/* RIGHT — Links & Contact */}
+        <div className="flex flex-col gap-16">
+
+          {/* INTERNAL NAV (SEO VALUE) */}
+          <div>
+            <p className="text-xs tracking-widest text-gray-400 mb-6">
+              EXPLORE
+            </p>
+
+            <ul className="space-y-4 text-sm text-gray-400">
+              <li>
+                <a href="#services" className="hover:text-white transition">
+                  Services
+                </a>
+              </li>
+              <li>
+                <a href="#work" className="hover:text-white transition">
+                  Projects
+                </a>
+              </li>
+              <li>
+                <a href="#ai" className="hover:text-white transition">
+                  AI Solutions
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* CONTACT OPTIONS */}
           <div>
             <p className="text-xs tracking-widest text-gray-400 mb-6">
               CONTACT
@@ -61,8 +88,9 @@ export default function Footer() {
               {/* WHATSAPP */}
               <li>
                 <a
-                  href="https://wa.me/XXXXXXXXXX"
+                  href="https://wa.me/9327806083"
                   target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() =>
                     trackEvent("contact_click", { method: "whatsapp" })
                   }
@@ -77,6 +105,7 @@ export default function Footer() {
                 <a
                   href="https://instagram.com/moucia"
                   target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() =>
                     trackEvent("contact_click", { method: "instagram" })
                   }

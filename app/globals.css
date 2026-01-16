@@ -34,3 +34,16 @@ body {
     padding-bottom: 4rem !important;
   }
 }
+section {
+  will-change: transform, opacity;
+}
+/* Plum-style vertical rhythm */
+section {
+  scroll-margin-top: 6rem;
+}
+
+@media (max-width: 768px) {
+  section {
+    scroll-margin-top: 4rem;
+  }
+}

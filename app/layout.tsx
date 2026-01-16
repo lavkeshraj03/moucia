@@ -9,7 +9,7 @@ import Providers from "./providers";
 import ScrollTracker from "./components/ScrollTracker";
 export const metadata = {
   title: {
-    default: "Moucia — AI & Digital Solutions",
+    default: "Moucia — AI, Web & Automation Studio",
     template: "%s | Moucia",
   },
   description:
@@ -45,6 +45,13 @@ export const metadata = {
     description:
       "AI-powered websites, automation, and intelligent digital solutions.",
     images: ["/opengraph-image.png"],
+  },
+  robots: {
+  index: true,
+  follow: true,
+},
+verification: {
+    google: "w59uYgSg_6YhqUYnba7AAEZjxcyvzcwc0P4-j0PtPaU",
   },
 };
 

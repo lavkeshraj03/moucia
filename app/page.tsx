@@ -10,7 +10,9 @@ import AICaseStudy from "./components/AICaseStudy";
 import ContactSection from "./components/ContactSection";
 import TechStack from "./components/TechStack";
 import Footer from "./components/Footer";
-
+import VideoSection from "./components/VideoSection";
+import GlobeSection from "./components/GlobeSection";
+import FeaturedProjects from "./components/FeaturedProjects";
 export default function Home() {
   return (
     <motion.main
@@ -20,6 +22,9 @@ export default function Home() {
       className="pt-20"
     >
       <Hero />
+      <VideoSection />
+      <GlobeSection />
+      <FeaturedProjects />
       <Services />
       <Work />
       <AISection />

@@ -98,6 +98,11 @@ export default function Hero() {
           AI-powered automation, and SEO-driven digital solutions
           that help startups and small businesses grow with confidence.
         </motion.p>
+        <p className="sr-only">
+          Moucia is a digital studio specializing in AI automation,
+          modern web development, scalable applications, and
+          SEO-driven growth for startups and growing companies.
+        </p>
       </div>
     </motion.section>
   );
