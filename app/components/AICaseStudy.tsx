@@ -1,61 +1,90 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { sectionReveal } from "../lib/sectionMotion";
-import MagneticCard from "./MagneticCard";
+import { motion, type Variants } from "framer-motion";
+
+const container: Variants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.14 },
+  },
+};
+
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 28 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
 
 export default function AICaseStudy() {
   return (
-    <motion.section
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.15 }}
-      variants={sectionReveal}
-      className="py-40 px-6 bg-black text-white"
-    >
-      <div className="max-w-6xl mx-auto">
-        <div className="mb-24 max-w-3xl">
-          <p className="text-sm tracking-widest text-[#C9A24D] mb-4">
+    <section className="bg-black" id="ai-case-study">
+      <div className="max-w-7xl mx-auto px-6 py-40">
+
+        {/* Heading */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          className="mb-24 max-w-2xl"
+        >
+          <p className="text-xs tracking-widest text-gray-400 mb-4">
             AI CASE STUDY
           </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light">
-            Automating Operations with AI
+          <h2 className="text-4xl md:text-5xl font-light text-white">
+            Designing AI systems that actually scale
           </h2>
-          <p className="text-gray-400 text-lg leading-relaxed">
-            How AI-driven automation reduced workload and improved efficiency.
-          </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          <CaseCard title="PROBLEM"
-            text="Manual processes slowed internal operations." />
-          <CaseCard title="AI SOLUTION"
-            text="AI systems automated support and routing." />
-          <CaseCard title="RESULTS"
-            text="~60% reduction in manual workload." />
-        </div>
+        {/* Content */}
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="space-y-20 max-w-3xl"
+        >
+          {/* Problem */}
+          <motion.div variants={fadeUp}>
+            <h3 className="text-xl text-white mb-3">
+              The problem
+            </h3>
+            <p className="text-gray-400 text-lg leading-relaxed">
+              Many businesses adopt AI tools without a clear system.
+              This leads to fragmented automation, poor reliability,
+              and limited real-world impact.
+            </p>
+          </motion.div>
+
+          {/* Approach */}
+          <motion.div variants={fadeUp}>
+            <h3 className="text-xl text-white mb-3">
+              Our approach
+            </h3>
+            <p className="text-gray-400 text-lg leading-relaxed">
+              We design AI as part of a larger operational workflow —
+              combining automation, data pipelines, and human oversight
+              into a single, maintainable system.
+            </p>
+          </motion.div>
+
+          {/* Outcome */}
+          <motion.div variants={fadeUp}>
+            <h3 className="text-xl text-white mb-3">
+              The outcome
+            </h3>
+            <p className="text-gray-400 text-lg leading-relaxed">
+              The result is AI that improves efficiency, reduces cost,
+              and scales alongside the business — not isolated tools,
+              but intelligent systems with long-term value.
+            </p>
+          </motion.div>
+        </motion.div>
+
       </div>
-    </motion.section>
-  );
-}
-
-function CaseCard({ title, text }: { title: string; text: string }) {
-  return (
-    <MagneticCard>
-      <motion.div
-        whileHover={{ y: -4 }}
-        transition={{ duration: 0.25, ease: "easeOut" }}
-        className="border border-white/10 p-10
-                   hover:border-[#C9A24D]/50
-                   hover:shadow-[0_0_28px_rgba(201,162,77,0.1)]"
-      >
-        <p className="text-xs tracking-widest text-gray-500 mb-4">
-          {title}
-        </p>
-        <p className="text-gray-300 leading-relaxed">
-          {text}
-        </p>
-      </motion.div>
-    </MagneticCard>
+    </section>
   );
 }

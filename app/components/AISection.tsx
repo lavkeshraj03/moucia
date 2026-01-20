@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { sectionReveal } from "../lib/sectionMotion";
-import MagneticCard from "./MagneticCard";
 
 const aiServices = [
   {
@@ -44,14 +43,18 @@ export default function AISection() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {aiServices.map((item, i) => (
-            <MagneticCard key={i}>
-              <div className="border border-white/10 p-10 hover:border-[#C9A24D] transition">
-                <h3 className="text-xl mb-4">{item.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">
-                  {item.desc}
-                </p>
-              </div>
-            </MagneticCard>
+            <div
+              key={i}
+              className="border border-white/10
+                rounded-2xl p-10
+                bg-white/5
+                transition hover:border-[#C9A24D]]"
+            >
+              <h3 className="text-xl mb-4">{item.title}</h3>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                {item.desc}
+              </p>
+            </div>
           ))}
         </div>
       </div>

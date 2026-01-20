@@ -1,44 +1,49 @@
 "use client";
 
 import { motion } from "framer-motion";
-import ParallaxTilt from "./ParallaxTilt";
+import MagneticCard from "./MagneticCard";
+import type { SVGProps } from "react";
 
-type Props = {
-  icon: React.ElementType;
+type IconType = React.ComponentType<SVGProps<SVGSVGElement>>;
+
+interface ServiceCardProps {
   title: string;
   desc: string;
-};
+  Icon: IconType;
+}
 
-export default function ServiceCard({ icon: Icon, title, desc }: Props) {
+export default function ServiceCard({
+  title,
+  desc,
+  Icon,
+}: ServiceCardProps) {
   return (
-    <ParallaxTilt>
+    <MagneticCard>
       <motion.div
-        whileHover={{
-          y: -12,
-          boxShadow: "0 0 45px rgba(201,162,77,0.18)",
-        }}
-        transition={{ duration: 0.35, ease: "easeOut" }}
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
         className="relative border border-white/10 p-10
                    hover:border-[#C9A24D]/60
-                   transition-all backdrop-blur"
+                   transition-all bg-black"
       >
-        {/* Ambient pulse */}
-        <motion.div
-          className="absolute inset-0 rounded-md pointer-events-none"
-          animate={{ opacity: [0.05, 0.1, 0.05] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          style={{
-            background:
-              "radial-gradient(circle at center, rgba(201,162,77,0.15), transparent 60%)",
-          }}
-        />
+        {/* subtle glow */}
+        <div className="absolute inset-0 rounded-lg
+                        bg-gradient-to-br from-[#C9A24D]/10 to-transparent
+                        opacity-0 hover:opacity-100 transition" />
 
+        {/* icon */}
         <Icon className="relative z-10 w-8 h-8 text-[#C9A24D] mb-6" />
-        <h3 className="relative z-10 text-xl mb-3">{title}</h3>
+
+        <h3 className="relative z-10 text-xl mb-3">
+          {title}
+        </h3>
+
         <p className="relative z-10 text-gray-400 text-sm leading-relaxed">
           {desc}
         </p>
       </motion.div>
-    </ParallaxTilt>
+    </MagneticCard>
   );
 }

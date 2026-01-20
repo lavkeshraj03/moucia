@@ -45,6 +45,7 @@ export default function Footer() {
             <p className="text-xs tracking-widest text-gray-400 mb-6">
               EXPLORE
             </p>
+            
 
             <ul className="space-y-4 text-sm text-gray-400">
               <li>
@@ -64,6 +65,11 @@ export default function Footer() {
               </li>
             </ul>
           </div>
+          <li>
+              <a href="/insights" className="hover:text-white transition">
+                Insights
+              </a>
+            </li> 
 
           {/* CONTACT OPTIONS */}
           <div>
@@ -116,6 +122,9 @@ export default function Footer() {
               </li>
             </ul>
           </div>
+          <p className="text-xs text-gray-500 mt-6">
+            Typically replies within 24 hours
+          </p>
 
           {/* CTA */}
           <MagneticButton>

@@ -15,7 +15,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-40 px-6 bg-black text-white text-center"
+      className="py-40 px-6 relativetext-white text-center"
     >
       <motion.div
         initial="hidden"

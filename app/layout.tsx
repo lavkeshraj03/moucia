@@ -1,58 +1,20 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+import Providers from "./providers";
 import Navbar from "./components/Navbar";
-import GlobalPointerGlow from "./components/GlobalPointerGlow";
 import ScrollDepthWrapper from "./components/ScrollDepthWrapper";
 import ScrollSnapEasing from "./components/ScrollSnapEasing";
-import Providers from "./providers";
 import ScrollTracker from "./components/ScrollTracker";
-export const metadata = {
+import BackgroundPaths from "./components/BackgroundPaths";
+
+export const metadata: Metadata = {
   title: {
     default: "Moucia — AI, Web & Automation Studio",
     template: "%s | Moucia",
   },
   description:
-    "Moucia builds AI-powered websites, automation systems, and intelligent digital products for modern businesses.",
-  keywords: [
-    "AI automation",
-    "web development",
-    "startup websites",
-    "digital solutions",
-    "AI agency",
-    "Next.js agency",
-  ],
-  metadataBase: new URL("https://moucia.com"),
-  openGraph: {
-    title: "Moucia — AI & Digital Solutions",
-    description:
-      "AI-powered websites, automation, and intelligent digital solutions built to scale your business.",
-    url: "https://moucia.com",
-    siteName: "Moucia",
-    images: [
-      {
-        url: "/opengraph-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Moucia AI & Digital Solutions",
-      },
-    ],
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Moucia — AI & Digital Solutions",
-    description:
-      "AI-powered websites, automation, and intelligent digital solutions.",
-    images: ["/opengraph-image.png"],
-  },
-  robots: {
-  index: true,
-  follow: true,
-},
-verification: {
-    google: "w59uYgSg_6YhqUYnba7AAEZjxcyvzcwc0P4-j0PtPaU",
-  },
+    "Moucia builds AI-powered websites, automation systems, and intelligent digital products.",
 };
 
 export default function RootLayout({
@@ -62,24 +24,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-black text-white overflow-x-hidden">
-        <Providers>
-          <ScrollTracker />
-          {/*  Global pointer glow — MUST be first */}
-          <GlobalPointerGlow />
+      <body className="bg-[#0b0d10] text-white overflow-x-hidden relative">
+  <Providers>
+    {/* Animated background (GLOBAL) */}
+    <BackgroundPaths />
 
-          {/* Navigation */}
-          <Navbar />
+    <ScrollTracker />
+    <Navbar />
+    <ScrollSnapEasing />
 
-          {/* Scroll easing (non-visual) */}
-          <ScrollSnapEasing />
-
-          {/* Depth-aware wrapper */}
-          <ScrollDepthWrapper>
-            {children}
-          </ScrollDepthWrapper>
-        </Providers>  
-      </body>
+    {/* Content ABOVE background */}
+    <ScrollDepthWrapper>
+      {children}
+    </ScrollDepthWrapper>
+  </Providers>
+</body>
     </html>
   );
 }

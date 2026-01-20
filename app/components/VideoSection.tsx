@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function VideoSection() {
   return (
-    <section className="relative w-full bg-black">
+    <section className="bg-black w-full relative">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -20,7 +20,9 @@ export default function VideoSection() {
             muted
             loop
             playsInline
-            className="w-full h-[60vh] object-cover"
+            className="w-full rounded-3xl
+             overflow-hidden
+             border border-white/10"
           />
 
           {/* Soft overlay (Plum-style calm) */}

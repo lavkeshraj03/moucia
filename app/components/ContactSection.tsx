@@ -2,6 +2,8 @@
 
 import { motion, type Variants } from "framer-motion";
 import MagneticButton from "./MagneticButton";
+import { trackEvent } from "../lib/analytics";
+import { useRouter } from "next/navigation";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -13,13 +15,15 @@ const fadeUp: Variants = {
 };
 
 export default function ContactSection() {
+  const router = useRouter();
+
   return (
     <motion.section
       id="contact"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
-      className="py-40 px-6 bg-black text-white"
+      className="py-40 px-6 bg-blacktext-white"
     >
       <div className="max-w-3xl mx-auto text-center">
         {/* Heading */}
@@ -48,7 +52,12 @@ export default function ContactSection() {
 
         {/* CTA */}
         <motion.div variants={fadeUp} className="flex justify-center">
-          <MagneticButton>
+          <MagneticButton
+            onClick={() => {
+              trackEvent("cta_click", { location: "contact_section" });
+              router.push("/contact");
+            }}
+          >
             Get in Touch
           </MagneticButton>
         </motion.div>

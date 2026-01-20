@@ -31,7 +31,7 @@ export default function TechStack() {
   }, [controls]);
 
   return (
-    <section className="relative py-16 sm:py-24 bg-black overflow-hidden">
+    <section className="bg-black py-16 sm:py-24 relative overflow-hidden">
       {/* Label */}
       <div className="text-center mb-12">
         <p className="text-xs tracking-widest text-gray-500">

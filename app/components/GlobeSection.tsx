@@ -1,17 +1,34 @@
 "use client";
-import { useScroll, useTransform } from "framer-motion";
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+
+const Globe3D = dynamic(() => import("./Globe3D"), {
+  ssr: false,
+});
 
 export default function GlobeSection() {
+  const [mounted, setMounted] = useState(false);
   const [open, setOpen] = useState(false);
+
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], [-20, 20]);
-    return (
-    <section className="relative bg-black">
+
+  useEffect(() => {
+    // Wait for hydration to fully finish
+    const t = setTimeout(() => setMounted(true), 50);
+    return () => clearTimeout(t);
+  }, []);
+
+  return (
+    <section
+      className="bg-blackrelative overflow-hidden"
+      suppressHydrationWarning
+    >
       <div className="max-w-7xl mx-auto px-6 py-40 grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
-        
-        {/* Left: Text */}
+
+        {/* LEFT */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -40,36 +57,19 @@ export default function GlobeSection() {
           </button>
         </motion.div>
 
-        {/* Right: Globe placeholder */}
-       <motion.div style={{ y }} className="flex justify-center">
-  
-        {/* Rotating globe */}
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{
-            duration: 80,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="relative w-[320px] h-[320px] rounded-full
-                    border border-white/20
-                    bg-gradient-to-br from-white/5 to-transparent
-                    shadow-[0_0_60px_rgba(255,255,255,0.08)]
-                    flex items-center justify-center text-gray-400"
-        >
-          {/* Light reflection */}
-          <div
-            className="absolute top-10 left-10 w-24 h-24 rounded-full
-                      bg-white/10 blur-2xl"
-          />
+        {/* RIGHT — GLOBE */}
+        <motion.div style={{ y }} className="flex justify-center md:justify-end">
+          <div className="relative w-[360px] h-[360px] md:w-[420px] md:h-[420px] bg-black">
+            {!mounted && (
+              <div className="absolute inset-0 bg-black" />
+            )}
 
-          Globe
+            {mounted && <Globe3D />}
+          </div>
         </motion.div>
-
-      </motion.div>
       </div>
 
-      {/* Learn more expandable content */}
+      {/* EXPAND */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -79,15 +79,17 @@ export default function GlobeSection() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="max-w-4xl mx-auto px-6 pb-32"
           >
-            <div className="border-t border-white/10 pt-12 text-gray-400 space-y-4">
+            <div className="rounded-2xl
+                border border-white/10
+                p-8 sm:p-10
+                bg-white/5 text-gray-400 space-y-4">
               <p>
                 Our approach combines strategy, design, and engineering
-                to create products that scale across regions, devices,
-                and audiences.
+                to create products that scale globally.
               </p>
               <p>
-                From global SaaS platforms to AI-powered automation,
-                we focus on performance, clarity, and long-term growth.
+                From SaaS platforms to AI automation, we focus on clarity,
+                performance, and long-term growth.
               </p>
             </div>
           </motion.div>
