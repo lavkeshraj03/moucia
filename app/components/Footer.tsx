@@ -120,6 +120,17 @@ export default function Footer() {
                   Instagram ↗
                 </a>
               </li>
+              {/*X */}
+              <li>
+                <a
+                  href="https://x.com/moucia"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#C9A24D] transition"
+                >
+                  X (Twitter) ↗
+                </a>
+              </li>
             </ul>
           </div>
           <p className="text-xs text-gray-500 mt-6">
