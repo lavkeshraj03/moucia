@@ -15,7 +15,7 @@ export default function VideoSection() {
         {/* Video container */}
         <div className="relative overflow-hidden rounded-xl border border-white/10">
           <video
-            src="/PixVerse_V5.5_Image_Text_360P_genrate_a_video_.mp4"
+            src="/teammoucia.mp4"
             autoPlay
             muted
             loop
