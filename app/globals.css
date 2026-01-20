@@ -65,3 +65,43 @@ body {
 .animate-wave-slower {
   animation: waveSlower 34s ease-in-out infinite;
 }
+/* ===== Premium Form Surface ===== */
+.input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 14px 18px;
+  color: white;
+  font-size: 15px;
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.input:focus {
+  border-color: rgba(201, 162, 77, 0.7);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Submit button refinement */
+.form-submit {
+  border-radius: 16px;
+  background: linear-gradient(
+    135deg,
+    #c9a24d 0%,
+    #e0c37a 100%
+  );
+  color: #0b0d10;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.form-submit:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
