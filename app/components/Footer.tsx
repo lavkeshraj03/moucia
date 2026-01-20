@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import MagneticButton from "./MagneticButton";
 import { trackEvent } from "../lib/analytics";
-
+import { Mail, Instagram, MessageCircle } from "lucide-react";
 export default function Footer() {
   return (
     <motion.footer
@@ -77,61 +77,78 @@ export default function Footer() {
               CONTACT
             </p>
 
-            <ul className="space-y-5 text-lg">
-              {/* EMAIL */}
-              <li>
-                <a
-                  href="mailto:hello@moucia.com"
-                  onClick={() =>
-                    trackEvent("contact_click", { method: "email" })
-                  }
-                  className="hover:text-[#C9A24D] transition"
-                >
-                  hello@moucia.com ↗
-                </a>
-              </li>
+            <ul className="flex items-center gap-6">
+            {/* EMAIL */}
+            <li>
+              <a
+                href="mailto:hello@moucia.com"
+                aria-label="Email"
+                className="group"
+              >
+                <Mail
+                  className="w-6 h-6 text-gray-400
+                            group-hover:scale-110
+                            group-hover:text-[#C9A24D]
+                            transition"
+                />
+              </a>
+            </li>
 
-              {/* WHATSAPP */}
-              <li>
-                <a
-                  href="https://wa.me/9327806083"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() =>
-                    trackEvent("contact_click", { method: "whatsapp" })
-                  }
-                  className="hover:text-[#C9A24D] transition"
-                >
-                  WhatsApp ↗
-                </a>
-              </li>
+            {/* WHATSAPP */}
+            <li>
+              <a
+                href="https://wa.me/8094290962"
+                target="_blank"
+                aria-label="WhatsApp"
+                className="group"
+              >
+                <MessageCircle
+                  className="w-6 h-6 text-gray-400
+                            group-hover:scale-110
+                            group-hover:text-[#C9A24D]
+                            transition"
+                />
+              </a>
+            </li>
 
-              {/* INSTAGRAM */}
-              <li>
-                <a
-                  href="https://instagram.com/moucia"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() =>
-                    trackEvent("contact_click", { method: "instagram" })
-                  }
-                  className="hover:text-[#C9A24D] transition"
+            {/* INSTAGRAM */}
+            <li>
+              <a
+                href="https://instagram.com/moucia.soft"
+                target="_blank"
+                aria-label="Instagram"
+                className="group"
+              >
+                <Instagram
+                  className="w-6 h-6 text-gray-400
+                            group-hover:scale-110
+                            group-hover:text-[#C9A24D]
+                            transition"
+                />
+              </a>
+            </li>
+
+            {/* X (Twitter) */}
+            <li>
+              <a
+                href="https://x.com/moucia.soft"
+                target="_blank"
+                aria-label="X"
+                className="group"
+              >
+                {/* Custom X icon (Lucide doesn’t have official X yet) */}
+                <svg
+                  viewBox="0 0 24 24"
+                  className="w-6 h-6 fill-gray-400
+                            group-hover:scale-110
+                            group-hover:fill-[#C9A24D]
+                            transition"
                 >
-                  Instagram ↗
-                </a>
-              </li>
-              {/*X */}
-              <li>
-                <a
-                  href="https://x.com/moucia"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-[#C9A24D] transition"
-                >
-                  X (Twitter) ↗
-                </a>
-              </li>
-            </ul>
+                  <path d="M18.244 2H21.55l-7.227 8.26L23 22h-6.768l-5.3-6.94L4.91 22H1.6l7.73-8.84L1 2h6.92l4.79 6.28L18.244 2z" />
+                </svg>
+              </a>
+            </li>
+          </ul>
           </div>
           <p className="text-xs text-gray-500 mt-6">
             Typically replies within 24 hours
