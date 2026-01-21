@@ -20,7 +20,7 @@ import AICaseStudy from "./components/AICaseStudy";
 import ContactSection from "./components/ContactSection";
 import TechStack from "./components/TechStack";
 import Footer from "./components/Footer";
-
+import ProjectTechStack from "./components/ProjectTechStack";
 export default function Home() {
   const [introDone, setIntroDone] = useState(false);
 
@@ -76,6 +76,10 @@ export default function Home() {
 
           <SectionSurface>
             <ContactSection />
+          </SectionSurface>
+
+          <SectionSurface>
+            <ProjectTechStack />
           </SectionSurface>
 
           <SectionSurface>
