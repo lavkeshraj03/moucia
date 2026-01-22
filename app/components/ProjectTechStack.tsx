@@ -11,10 +11,10 @@ const projects = [
     real: true,
   },
   {
-    name: "FoodFlow",
-    href: "#",
-    image: "/projects/placeholder.jpg",
-    real: false,
+    name: "DineSmart",
+    href: "https://dine-smart-eight.vercel.app/",
+    image: "/projects/DineSmart.jpg",
+    real: true,
   },
   {
     name: "ClinicOS",
