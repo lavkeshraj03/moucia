@@ -17,6 +17,12 @@ const projects = [
     real: true,
   },
   {
+    name: "ServiceMate",
+    href: "https://service-mate-nine.vercel.app/",
+    image: "/projects/ServiceMate.jpg",
+    real: true,
+  },
+  {
     name: "ClinicOS",
     href: "#",
     image: "/projects/placeholder.jpg",
