@@ -23,6 +23,12 @@ const projects = [
     real: true,
   },
   {
+    name: "Robo",
+    href: "https://project-robo-iota.vercel.app/",
+    image: "/projects/robo.jpg",
+    real: true,
+  },
+  {
     name: "ClinicOS",
     href: "#",
     image: "/projects/placeholder.jpg",

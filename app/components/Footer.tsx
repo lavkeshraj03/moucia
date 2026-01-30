@@ -94,7 +94,7 @@ export default function Footer() {
 
                 <li>
                   <a
-                    href="https://wa.me/8094290962?text=Hi%20Moucia%2C%20I%20want%20to%20discuss%20a%20project"
+                    href="https://wa.me/+918094290962?text=Hi%20Moucia%2C%20I%20want%20to%20discuss%20a%20project"
                     target="_blank"
                     aria-label="WhatsApp"
                     className="group"
@@ -105,7 +105,7 @@ export default function Footer() {
 
                 <li>
                   <a
-                    href="https://instagram.com/moucia.soft"
+                    href="https://instagram.com/MouciaDev"
                     target="_blank"
                     aria-label="Instagram"
                     className="group"
@@ -116,7 +116,7 @@ export default function Footer() {
 
                 <li>
                   <a
-                    href="https://x.com/moucia.soft"
+                    href="https://x.com/MouciaDev"
                     target="_blank"
                     aria-label="X"
                     className="group"
