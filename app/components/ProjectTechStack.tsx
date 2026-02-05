@@ -29,6 +29,12 @@ const projects = [
     real: true,
   },
   {
+    name: "Perfora",
+    href: "https://project-perfora.vercel.app/",
+    image: "/projects/perfora.jpg",
+    real: true,
+  },
+  {
     name: "ClinicOS",
     href: "#",
     image: "/projects/placeholder.jpg",
